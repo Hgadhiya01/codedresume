@@ -546,14 +546,22 @@
                                     class="one-page-section menu-item menu-item-type-custom menu-item-object-custom menu-item-17">
                                     <a href="#about">About</a>
                                 </li>
+                                {% if all_project %}
                                 <li id="menu-item-18"
                                     class="one-page-section menu-item menu-item-type-custom menu-item-object-custom menu-item-18">
                                     <a href="#portfolio">Portfolio</a>
                                 </li>
+                                {% else %}
+                                <p hidden>not availble</p>
+                                {% endif %}
+                                {% if all_experience %}
                                 <li id="menu-item-19"
                                     class="one-page-section menu-item menu-item-type-custom menu-item-object-custom menu-item-19">
                                     <a href="#experience">Experience</a>
                                 </li>
+                                {% else %}
+                                <p hidden>not availble</p>
+                                {% endif %}
                                 <li id="menu-item-20"
                                     class="one-page-section menu-item menu-item-type-custom menu-item-object-custom menu-item-20">
                                     <a href="#skills">Skills</a>

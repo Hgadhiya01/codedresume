@@ -640,12 +640,20 @@
                                 <li id="menu-item-197"
                                     class="one-page-section menu-item menu-item-type-custom menu-item-object-custom menu-item-197">
                                     <a href="#introduce">About</a></li>
+                                {% if all_project %}
                                 <li id="menu-item-198"
                                     class="one-page-section menu-item menu-item-type-custom menu-item-object-custom menu-item-198">
                                     <a href="#portfolio">Portfolio</a></li>
+                                {% else %}
+                                <p hidden>not availble</p>
+                                {% endif %}
+                                {% if all_experience %}
                                 <li id="menu-item-199"
                                     class="one-page-section menu-item menu-item-type-custom menu-item-object-custom menu-item-199">
                                     <a href="#experience">Experience</a></li>
+                                {% else %}
+                                <p hidden>not availble</p>
+                                {% endif %}
                                 <li id="menu-item-200"
                                     class="one-page-section menu-item menu-item-type-custom menu-item-object-custom menu-item-200">
                                     <a href="#skills">Skills</a></li>
@@ -1130,6 +1138,52 @@
                         </section>
                         {% else %}
                         <p hidden>Experience not availble</p>
+                        {% endif %}
+                        {% if all_education %}
+                        <section
+                            class="elementor-section elementor-top-section elementor-element elementor-element-b9f64d3 op-section elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                            data-id="b9f64d3" data-element_type="section" id="experience">
+                            <div class="elementor-container elementor-column-gap-default">
+                                <div class="elementor-row">
+                                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8ba0716"
+                                        data-id="8ba0716" data-element_type="column">
+                                        <div class="elementor-column-wrap elementor-element-populated">
+                                            <div class="elementor-widget-wrap">
+                                                <div class="elementor-element elementor-element-08f92c7 elementor-widget elementor-widget-heading"
+                                                    data-id="08f92c7" data-element_type="widget"
+                                                    data-widget_type="heading.default">
+                                                    <div class="elementor-widget-container">
+                                                        <h2 class="elementor-heading-title elementor-size-default">
+                                                            Education</h2>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-3b92fb7 elementor-widget elementor-widget-coco-timeline"
+                                                    data-id="3b92fb7" data-element_type="widget"
+                                                    data-widget_type="coco-timeline.default">
+                                                    <div class="elementor-widget-container">
+                                                        <ul class="timeline-holder">
+                                                            {% for ex in all_education %}
+                                                            <li class="timeline-event">
+                                                                <span
+                                                                    class="timeline-circle"></span>
+                                                                <div class="timeline-event-content"><b>{{ex[0]}}</b><br>{{ex[1]}}<br>
+                                                                    {{ex[3]}}<br>{{ex[2]}}<br>
+                                                                   {{ex[4]}}<br>
+                                                                </div>
+                                                                <div class="timeline-event-date"></div>
+                                                            </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        {% else %}
+                        <p hidden>Education not availble</p>
                         {% endif %}
                         <section
                             class="elementor-section elementor-top-section elementor-element elementor-element-5f97ac3 op-section elementor-section-boxed elementor-section-height-default elementor-section-height-default"

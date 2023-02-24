@@ -12,14 +12,16 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Forget Password</h4>
+                                <h4 class="mb-sm-0">OTP verification</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                                        <li class="breadcrumb-item active">Forget Password</li>
+                                        <li class="breadcrumb-item active">OTP verification</li>
                                     </ol>
                                 </div>
+
+
                             </div>
                             <div class="col-md-auto" style="margin: 10px;">
                     {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
@@ -32,7 +34,8 @@
                         </div>
                     </div>
                     <!-- end page title -->
-                  <div class="main">
+
+                    <div class="main">
 
         <!-- Sing in  Form -->
         <section class="sign-in">
@@ -41,22 +44,18 @@
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="/static/login_page/images/signin-image.jpg" alt="sing up image"></figure>
-                        <a href="/login" class="signup-image-link">Login</a>
+                        <a href="/otp_sending_ver" class="signup-image-link">Send OTP</a>
                     </div>
 
                     <div class="signin-form">
-                        <h2 class="form-title">Forget Password</h2>
+                        <h2 class="form-title">OTP Verification</h2>
                         <form method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="username" id="username" placeholder="Enter Your Username" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="email" name="email" id="your_name" placeholder="Enter Your Email" required/>
+                                <input type="number" name="otp" id="username" placeholder="Enter OTP" required/>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Send OTP"/>
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Submit"/>
                             </div>
                         </form>
                     </div>
@@ -66,11 +65,10 @@
 
     </div>
 
-                    </div>
+                </div>
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
 
             <footer class="footer">
                 <div class="container-fluid">

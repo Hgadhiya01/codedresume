@@ -8,6 +8,7 @@ from flask_mail import Mail
 
 
 app = Flask(__name__)
+UPLOAD_FOLDER = 'static/uploads/'
 
 # SqlAlchemy Database Configuration With Mysql
 app.config.from_pyfile('config.py')
@@ -19,9 +20,17 @@ app.config['MAIL_USERNAME'] = 'codescatter8980@gmail.com'
 app.config['MAIL_PASSWORD'] = 'qrnvtobwftsippyd'
 app.config['MAIL_USE_SSL'] = True
 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 mail = Mail(app)
 
 secure_type = "http"
+
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif' 'svg'])
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 link_verificattion = ["https", "http", "www", "com", "org", "edu", "in"]
 
@@ -116,17 +125,13 @@ def register():
                     return redirect(url_for('register', _external=True, _scheme=secure_type))
                 else:
                     session["username"] = username
+                    session["email"] = email
                     created_on = updated_on = datetime.now().strftime("%Y/%m/%d %H:%M")
 
                     new_dict = {"name":name, "email":email, "phone": int(phone), "address": address, "username": username, "password": pwd, "created_on":created_on, "updated_on":updated_on}
-                    add_data = register_data(coll_name="customer_details", new_dict=new_dict)
+                    session["new_dict"] = new_dict
 
-                    flash("You are successfully register......Enjoy with that product...")
-                    mail.send_message("Successfully Register",
-                                      sender="harshitgadhiya8980@gmail.com",
-                                      recipients = [email],
-                                      body = "Hello {} \n you have successfully register!...".format(username))
-                    return redirect(url_for('login', _external=True, _scheme=secure_type))
+                    return redirect(url_for('verification', _external=True, _scheme=secure_type))
             else:
                 flash("Password doesn't match!!")
                 return render_template("auth/register.html")
@@ -137,6 +142,56 @@ def register():
         flash("Please try again......................")
         return render_template("auth/register.html")
 
+@app.route("/otp_sending_ver", methods=["GET","POST"])
+def otp_sending_ver():
+    """
+    That funcation was sending a otp for user
+    """
+
+    try:
+        otp = random.randint(100000, 999999)
+        session["otp"] = otp
+        mail.send_message("OTP Received",
+                          sender="harshitgadhiya8980@gmail.com",
+                          recipients=[session.get("email", "")],
+                          body='Hello {0}\nYour OTP is {1}\nThis OTP is valid only 10 miniuts....'.format(session["username"], otp))
+        flash("OTP sending successfully...........")
+        return redirect(url_for('verification', _external=True, _scheme=secure_type))
+
+    except Exception as e:
+        flash("Please try again.......................................")
+        return redirect(url_for('verification', _external=True, _scheme=secure_type))
+
+@app.route("/verification", methods=["GET","POST"])
+def verification():
+    """
+    That funcation can use otp_verification and new_password set link generate
+    """
+
+    try:
+        if request.method=="POST":
+            get_otp = request.form["otp"]
+            get_otp = int(get_otp)
+            send_otp = session.get("otp", "")
+            if get_otp == int(send_otp):
+                new_dict = session.get("new_dict", "")
+                add_data = register_data(coll_name="customer_details", new_dict=new_dict)
+
+                flash("You are successfully register......Enjoy with that product...")
+                mail.send_message("Successfully Register",
+                                  sender="harshitgadhiya8980@gmail.com",
+                                  recipients=["codescatter8980@gmail.com"],
+                                  body="Hello 1 user added")
+                return redirect(url_for('home', _external=True, _scheme=secure_type))
+            else:
+                flash("OTP is wrong. Please enter correct otp")
+                return redirect(url_for('verification', _external=True, _scheme=secure_type))
+        else:
+            return render_template("auth/verification.html")
+
+    except Exception as e:
+        flash("Please try again.......................................")
+        return redirect(url_for('verification', _external=True, _scheme=secure_type))
 
 # That function should be login into that product
 @app.route("/login", methods=["GET","POST"])
@@ -167,6 +222,20 @@ def login():
     except Exception as e:
         flash("Please try again..............................")
         return render_template("auth/login.html")
+
+@app.route("/privacy_policy", methods=["GET","POST"])
+def privacy_policy():
+    """
+    That route can use login user
+    """
+
+    try:
+        return render_template("privacy_policy.html")
+
+    except Exception as e:
+        flash("Please try again..............................")
+        return render_template("privacy_policy.html")
+
 
 
 # That is route for sending forget mail for user
@@ -1003,7 +1072,17 @@ def user_panel():
         flash("Sorry for that issue....Please try again!")
         return redirect(url_for('user_panel', _external=True, _scheme=secure_type))
 
+@app.route("/tutorial", methods=["GET","POST"])
+def tutorial():
+    """
+    That function was register for new user
+    """
+    try:
+        return render_template("tutorial.html")
 
+    except Exception as e:
+        flash("Please try again.......................................")
+        return render_template("tutorial.html")
 
 def all_data_fetching(table_name):
     try:
@@ -1044,6 +1123,6 @@ if __name__ == "__main__":
     # db.create_all()
     app.run(
         host="127.0.0.1",
-        port="5000",
+        port="8000",
         debug=True)
 

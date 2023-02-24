@@ -7932,13 +7932,13 @@ body.op-modal-open {
 
 .header-offcanvasmenu .offcanvas-body .main-navigation li a {
     color: var(--color-dark);
-    font-size: 36px;
+    font-size: 20px;
     font-weight: 500;
 }
 
 @media only screen and (max-width: 1199px) {
     .header-offcanvasmenu .offcanvas-body .main-navigation li a {
-        font-size: 24px;
+        font-size: 20px;
     }
 }
 
