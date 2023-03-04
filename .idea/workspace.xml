@@ -7,18 +7,110 @@
     <list default="true" id="b42e7ef4-645a-4ccb-85cc-d58cc0f66182" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/main_website_page/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/main_website_page/assets/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auth/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auth/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auth/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auth/sending_forget_mail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auth/sending_forget_mail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Screenshot (36).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp1/author/anna-stone/feed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp1/author/anna-stone/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp1/blog/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp1/category/uncategorized/feed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp1/category/uncategorized/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp1/great-turbulent-clouds-hearts-of-the-stars-stirred-by-starlight-sky-culture/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp1/hundreds-of-thousands-a-still-more-glorious-nights-around-art-table/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp1/portfolio/item-1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp1/portfolio/item-4/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp1/portfolio/item-6/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp1/preserve-and-cherish-that-pale-blue-dot-are-creatures-of-the-cosmos-light-years/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp2/2019/11/26/great-turbulent-clouds-hearts-of-the-stars-stirred-by-starlight-sky-culture/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp2/2019/11/27/preserve-and-cherish-that-pale-blue-dot-are-creatures-of-the-cosmos-light-years/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp2/2019/11/28/hundreds-of-thousands-a-still-more-glorious-nights-around-art-table/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp2/author/marco-stone/feed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp2/author/marco-stone/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp2/blog/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp2/category/uncategorized/feed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp2/category/uncategorized/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp2/portfolio/item-1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp2/portfolio/item-4/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp2/portfolio/item-6/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp3/2019/11/26/great-turbulent-clouds-hearts-of-the-stars-stirred-by-starlight-sky-culture/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp3/2019/11/27/preserve-and-cherish-that-pale-blue-dot-are-creatures-of-the-cosmos-light-years/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp3/2019/11/28/hundreds-of-thousands-a-still-more-glorious-nights-around-art-table/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp3/author/ricky-stone/feed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp3/author/ricky-stone/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp3/blog/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp3/category/uncategorized/feed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp3/category/uncategorized/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp3/portfolio/item-1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp3/portfolio/item-4/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp3/portfolio/item-6/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/author/jacob-hawkins/feed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/author/jacob-hawkins/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/author/jacob-hawkins/page/2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/blog/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/cambrian-explosion-kindling-the-energy-hidden-in-matter-vanquish-now/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/category/uncategorized/feed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/category/uncategorized/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/category/uncategorized/page/2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/great-turbulent-clouds-hearts-of-the-stars-stirred-by-starlight-sky/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/hundreds-of-thousands-a-still-more-glorious-nights-around-art/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/portfolio/item-1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/portfolio/item-2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/portfolio/item-3/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/portfolio/item-4/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp4/preserve-and-cherish-that-pale-blue-dot-are-light-years/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/author/jenn-walkers/feed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/author/jenn-walkers/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/author/jenn-walkers/page/2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/blog/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/cambrian-explosion-kindling-the-energy-hidden-in-matter-vanquish-now/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/category/uncategorized/feed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/category/uncategorized/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/category/uncategorized/page/2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/great-turbulent-clouds-hearts-of-the-stars-stirred-by-starlight-sky/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/hundreds-of-thousands-a-still-more-glorious-nights-around-art/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/portfolio/item-1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/portfolio/item-2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/portfolio/item-3/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/portfolio/item-4/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp5/preserve-and-cherish-that-pale-blue-dot-are-light-years/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/author/rob-davidson/feed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/author/rob-davidson/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/author/rob-davidson/page/2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/blog/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/cambrian-explosion-kindling-the-energy-hidden-in-matter-vanquish-now/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/category/uncategorized/feed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/category/uncategorized/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/category/uncategorized/page/2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/great-turbulent-clouds-hearts-of-the-stars-stirred-by-starlight-sky-culture/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/hundreds-of-thousands-a-still-more-glorious-nights-around-art-table/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/portfolio/item-1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/portfolio/item-2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/portfolio/item-3/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/portfolio/item-4/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main_templete/temp6/preserve-and-cherish-that-pale-blue-dot-are-creatures-of-the-cosmos-light-years/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/admin_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/customer_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/customer_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/education.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/education.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/experience.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/experience.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/help_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/help_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/personal_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/personal_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/product_purshase_data.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/product_purshase_data.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/projects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/skills.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/skills.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/social_media_link.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/social_media_link.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/theme_selected.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/theme_selected.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/user_data.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user_data.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main_templete/temp1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main_templete/temp1/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main_templete/temp2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main_templete/temp2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main_templete/temp3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main_templete/temp3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main_templete/temp4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main_templete/temp4/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main_templete/temp4/index_theme.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main_templete/temp4/index_theme.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/education.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/education.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/experience.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/experience.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/help_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/help_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/onepage-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/onepage-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personal_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personal_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/privacy_policy.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/privacy_policy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/project.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/skill.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/skill.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/social_media.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/social_media.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/theme.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/theme.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user_admin_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_admin_panel.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +199,7 @@
       <breakpoints>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>70</line>
+          <line>77</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
@@ -122,153 +214,193 @@
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>85</line>
+          <line>101</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>301</line>
+          <line>329</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>89</line>
+          <line>115</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>98</line>
+          <line>124</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>344</line>
+          <line>372</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>351</line>
+          <line>379</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>663</line>
+          <line>711</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>664</line>
+          <line>712</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>682</line>
+          <line>730</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>500</line>
+          <line>533</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>820</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>933</line>
+          <line>1011</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>499</line>
+          <line>532</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>497</line>
+          <line>530</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>913</line>
+          <line>991</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>453</line>
+          <line>481</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>487</line>
+          <line>520</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>82</line>
+          <line>98</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>457</line>
+          <line>485</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>1066</line>
+          <line>1192</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>1065</line>
+          <line>1191</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>762</line>
+          <line>810</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>764</line>
+          <line>812</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>151</line>
+          <line>176</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>120</line>
+          <line>146</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>152</line>
+          <line>177</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>172</line>
+          <line>197</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>189</line>
+          <line>218</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>157</line>
+          <line>182</line>
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>180</line>
+          <line>208</line>
           <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>201</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>221</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>1218</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>1262</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>1106</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>1108</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>1129</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>1153</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>502</line>
+          <option name="timeStamp" value="67" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

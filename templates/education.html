@@ -45,25 +45,31 @@
                                 <div class="p-2 mt-4">
                                     <form action="/education" method="POST">
                                         <div class="mb-3">
-                                            <input type="text" name="since" class="form-control" id="since" placeholder="Enter may-2019 to june-2022" required>
+                                            <input type="text" name="since" class="form-control" id="since" placeholder="* Enter may-2019 to june-2022" required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="text" name="clg_name" class="form-control" id="clg_name" placeholder="Enter college name" required>
+                                            <input type="text" name="clg_name" class="form-control" id="clg_name" placeholder="* Enter college name" required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="text" name="degree_name" class="form-control" id="degree_name" placeholder="Enter Degree name" required>
+                                            <input type="text" name="degree_name" class="form-control" id="degree_name" placeholder="* Enter Degree name" required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="text" name="university" class="form-control" id="university" placeholder="Enter university name" required>
+                                            <input type="text" name="university" class="form-control" id="university" placeholder="* Enter university name" required>
                                         </div>
                                         <div class="mb-3">
-                                            <textarea class="form-control" id="description" rows="5" name="description" placeholder="Enter your college description" required></textarea>
+                                            <textarea class="form-control" id="description" rows="5" name="description" placeholder="Enter your college project description"></textarea>
                                         </div>
                                         <div class="mt-4 text-center">
                                             <input type="submit" name="signin" id="signin" class="form-submit btn btn-success w-100" value="Submit Data"/>
                                         </div>
-                                    </form>
-                                </div>
+                                    </form><br><br><center>
+                                    <a href="/education" style="color: #fff;"><p class="btn btn-primary w-20" style="color: #fff; margin-right: 20px; margin-bottom: 10px; width: 200px; border-radius: 10px;">Educations</a>
+                                    <a href="/experience" style="color: #fff;"><p class="btn btn-primary w-20" style="color: #fff; margin-right: 20px; margin-bottom: 10px; width: 200px; border-radius: 10px;">Experiences</a><br>
+                                    <a href="/skill" style="color: #fff;"><p class="btn btn-primary w-20" style="color: #fff; margin-right: 20px; margin-bottom: 10px; width: 200px; border-radius: 10px;">Skills</a>
+                                    <a href="/social_media" style="color: #fff;"><p class="btn btn-primary w-20" style="color: #fff; margin-right: 20px; margin-bottom: 10px; width: 200px; border-radius: 10px;">Social-Media Links</a><br>
+                                    <a href="/project" style="color: #fff;"><p class="btn btn-primary w-20" style="color: #fff; margin-right: 20px; margin-bottom: 10px; width: 200px; border-radius: 10px;">Projects</a>
+                                    <a href="/personal_info" style="color: #fff;"><p class="btn btn-primary w-20" style="color: #fff; margin-right: 20px; margin-bottom: 10px; width: 200px; border-radius: 10px;">Personal Information</a>
+                                </center></div>
                             </div>
                             <!-- end card body -->
                         </div>
@@ -72,36 +78,36 @@
                     </div>
                 </div>
 
-                    <div class="row" style="margin-top: 50px;">
-                        <div class="col-12">
-                            {% if all_response %}
-                            <table class="table">
-                              <thead>
-                                <tr>
-                                    <th scope="col">college_year</th>
-                                    <th scope="col">college_name</th>
-                                    <th scope="col">degree</th>
-                                    <th scope="col">university</th>
-                                    <th scope="col">description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              {% for em in all_response %}
-                                <tr>
-                                  <th>{{em[0]}}</th>
-                                  <td>{{em[1]}}</td>
-                                    <td>{{em[2]}}</td>
-                                    <td>{{em[3]}}</td>
-                                    <td>{{em[4]}}</td>
-                                </tr>
-                              {% endfor %}
-                              </tbody>
-                            </table>
-                            {% else %}
-                            <p>"Data is not availble this user"</p>
-                            {% endif %}
-                        </div>
-                    </div>
+<!--                    <div class="row" style="margin-top: 50px;">-->
+<!--                        <div class="col-12">-->
+<!--                            {% if all_response %}-->
+<!--                            <table class="table">-->
+<!--                              <thead>-->
+<!--                                <tr>-->
+<!--                                    <th scope="col">college_year</th>-->
+<!--                                    <th scope="col">college_name</th>-->
+<!--                                    <th scope="col">degree</th>-->
+<!--                                    <th scope="col">university</th>-->
+<!--                                    <th scope="col">description</th>-->
+<!--                                </tr>-->
+<!--                              </thead>-->
+<!--                              <tbody>-->
+<!--                              {% for em in all_response %}-->
+<!--                                <tr>-->
+<!--                                  <th>{{em[0]}}</th>-->
+<!--                                  <td>{{em[1]}}</td>-->
+<!--                                    <td>{{em[2]}}</td>-->
+<!--                                    <td>{{em[3]}}</td>-->
+<!--                                    <td>{{em[4]}}</td>-->
+<!--                                </tr>-->
+<!--                              {% endfor %}-->
+<!--                              </tbody>-->
+<!--                            </table>-->
+<!--                            {% else %}-->
+<!--                            <p>"Data is not availble this user"</p>-->
+<!--                            {% endif %}-->
+<!--                        </div>-->
+<!--                    </div>-->
 
 <!--                    <div class="row" style="margin-top: 50px;">-->
 <!--                        <div class="col-12">-->

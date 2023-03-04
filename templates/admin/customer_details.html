@@ -47,6 +47,7 @@
                                 {% for var1 in var %}
                                   <th scope="col">{{var1}}</th>
                               {% endfor %}
+                                  <th scope="col">Action</th>
                               </tr>
                               {% endfor %}
                               </thead>
@@ -56,6 +57,8 @@
                                     {% for em1 in em %}
                                   <td>{{em1}}</td>
                                     {% endfor %}
+                                    <td><a href="/delete/{{temp}}+++customer_details+++{{ loop.index }}">Delete</a><br>Update</td>
+
                                 </tr>
                               {% endfor %}
                               </tbody>

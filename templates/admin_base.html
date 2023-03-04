@@ -85,27 +85,46 @@
                         <span class="d-flex align-items-center">
                             <img class="rounded-circle header-profile-user" src="/static/assets/images/users/avatar-1.jpg"
                                 alt="Header Avatar">
+
                             <span class="text-start ms-xl-2">
+                                {% if session["admin_username"] %}
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{session["admin_username"]}}</span>
+                                {% else %}
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{session["username"]}}</span>
+                                {% endif %}
                                 <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Founder</span>
                             </span>
                         </span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
+                        {% if session["admin_username"] %}
+                        <h6 class="dropdown-header">Welcome {{session["admin_username"]}}!</h6>
+                        <a class="dropdown-item" href="/admin_login">
+                            <span class="align-middle">Login</span>
+                        </a>
+                        <a class="dropdown-item" href="/logout/admin">
+                            <span class="align-middle">Logout</span>
+                        </a>
+                        {% else %}
                         <h6 class="dropdown-header">Welcome {{session["username"]}}!</h6>
+                        <a class="dropdown-item" href="/login">
+                            <span class="align-middle">Login</span>
+                        </a>
+                        <a class="dropdown-item" href="/logout/user">
+                            <span class="align-middle">Logout</span>
+                        </a>
+                        {% endif %}
 <!--                        <a class="dropdown-item" href="/profile">-->
 <!--                            <span class="align-middle">Profile</span>-->
 <!--                        </a>-->
 <!--                        <a class="dropdown-item" href="/help">-->
 <!--                            <span class="align-middle">Help</span>-->
 <!--                        </a>-->
+
                         <a class="dropdown-item" href="/admin_login">
                             <span class="align-middle">Login</span>
                         </a>
-<!--                        <a class="dropdown-item" href="/sending_forget_mail">-->
-<!--                            <span class="align-middle">Forget Password</span>-->
-<!--                        </a>-->
                         <a class="dropdown-item" href="/logout/admin">
                             <span class="align-middle">Logout</span>
                         </a>
@@ -153,101 +172,71 @@
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         {% if session["admin_user"] %}
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
-                            </a>
-                            <div class="collapse menu-dropdown" id="sidebarDashboards">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="/admin_user" class="nav-link" data-key="t-analytics"> admin_user </a>
-                                    </li>
+                            <a href="/added_theme" class="nav-link" data-key="t-analytics"> <i class="ri-apps-2-line"></i>added theme </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin_user" class="nav-link" data-key="t-analytics"> <i class="ri-apps-2-line"></i>admin_user </a>
+                        </li>
 <!--                                    <li class="nav-item">-->
 <!--                                        <a href="/content_extracter" class="nav-link" data-key="t-analytics"> content_extracter </a>-->
 <!--                                    </li>-->
-                                    <li class="nav-item">
-                                        <a href="/admin/customer_details" class="nav-link" data-key="t-crm"> customer_details </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/education" class="nav-link" data-key="t-crm"> education </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/experience" class="nav-link" data-key="t-crm"> experience </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/personal_info" class="nav-link" data-key="t-crm"> personal_info </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/product_purshase_data" class="nav-link" data-key="t-crm"> product_purshase_data </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/help_form" class="nav-link" data-key="t-crm"> help_form </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/projects" class="nav-link" data-key="t-crm"> projects </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/skills" class="nav-link" data-key="t-crm"> skills </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/social_media_link" class="nav-link" data-key="t-crm"> social_media_link </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/theme_selected" class="nav-link" data-key="t-crm"> theme_selected </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/user_data" class="nav-link" data-key="t-crm"> user_data </a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <li class="nav-item">
+                            <a href="/admin/customer_details" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>customer_details </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/education" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>education </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/experience" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>experience </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/personal_info" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>personal_info </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/product_purshase_data" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>product_purshase_data </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/help_form" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>help_form </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/projects" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>projects </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/skills" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>skills </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/social_media_link" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>social_media_link </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/theme_selected" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>theme_selected </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/user_data" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>user_data </a>
                         </li>
                         {% else %}
-                        <li class="nav-item" hidden>
-                            <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
-                            </a>
-                            <div class="collapse menu-dropdown" id="sidebarDashboards">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="/admin_user" class="nav-link" data-key="t-analytics"> admin_user </a>
-                                    </li>
-<!--                                    <li class="nav-item">-->
-<!--                                        <a href="/content_extracter" class="nav-link" data-key="t-analytics"> content_extracter </a>-->
-<!--                                    </li>-->
-                                    <li class="nav-item">
-                                        <a href="/admin/customer_details" class="nav-link" data-key="t-crm"> customer_details </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/education" class="nav-link" data-key="t-crm"> education </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/experience" class="nav-link" data-key="t-crm"> experience </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/personal_info" class="nav-link" data-key="t-crm"> personal_info </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/product_purshase_data" class="nav-link" data-key="t-crm"> product_purshase_data </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/help_form" class="nav-link" data-key="t-crm"> help_form </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/projects" class="nav-link" data-key="t-crm"> projects </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/skills" class="nav-link" data-key="t-crm"> skills </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/social_media_link" class="nav-link" data-key="t-crm"> social_media_link </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/theme_selected" class="nav-link" data-key="t-crm"> theme_selected </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/user_data" class="nav-link" data-key="t-crm"> user_data </a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <li class="nav-item">
+                            <a href="/useradmin/personal_info" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>Personal Information </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/useradmin/experience" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>Experience </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/useradmin/education" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>Education </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/useradmin/projects" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>Projects </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/useradmin/skills" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>Skills </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/useradmin/social_media_link" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>Social Media Link </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/useradmin/user_data" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i>Contact Form </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/dash_home" class="nav-link" data-key="t-crm"> <i class="ri-apps-2-line"></i> Dashboard Home </a>
                         </li>
                         {% endif %}
                         <!-- end Dashboard Menu -->

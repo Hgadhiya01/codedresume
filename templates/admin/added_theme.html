@@ -35,18 +35,53 @@
                     </div>
                     <!-- end page title -->
 
+                    <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-6 col-xl-5">
+                        <div class="card mt-4">
+
+                            <div class="card-body p-4">
+                                <div class="text-center mt-2">
+                                    <h5 class="text-primary">Welcome Back !</h5>
+                                    {% if session["admin_username"] %}
+                                    <p class="text-muted">{{session["admin_username"]}}</p>
+                                    {% else %}
+                                    <p class="text-muted">Not Admin User</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                                <div class="p-2 mt-4">
+                                        <form action="/added_theme" method="POST">
+                                        {% for name in all_keys %}
+                                        {% for col_name in name %}
+                                        <div class="mb-3">
+                                            <input type="text" name={{col_name}} class="form-control" placeholder="Enter {{col_name}}" required>
+                                        </div>
+                                        {% endfor %}
+                                        {% endfor %}
+                                        <div class="mt-4 text-center">
+                                            <input type="submit" name="signin" id="signin" class="form-submit btn btn-success w-100" value="Submit"/>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- end card body -->
+                        </div>
+                        <!-- end card -->
+
+                    </div>
                 </div>
 
                     <div class="row">
                         <div class="col-12">
-                            {% if all_response and all_keys %}
+                            {% if all_response %}
                             <table class="table">
                               <thead>
-                              {% for var in all_keys %}
+                              {% for main in all_keys %}
                               <tr>
-                                {% for var1 in var %}
-                                  <th scope="col">{{var1}}</th>
-                              {% endfor %}
+                                {% for var in main %}
+                                  <th scope="col">{{var}}</th>
+                                {% endfor %}
                                   <th scope="col">Action</th>
                               </tr>
                               {% endfor %}
@@ -57,13 +92,13 @@
                                     {% for em1 in em %}
                                   <td>{{em1}}</td>
                                     {% endfor %}
-                                    <td><a href="/delete/{{temp}}+++education+++{{ loop.index }}">Delete</a><br>Update</td>
+                                    <td><a href="/delete/added_theme+++{{ loop.index }}">Delete</a><br>Update</td>
                                 </tr>
                               {% endfor %}
                               </tbody>
                             </table>
                             {% else %}
-                            <p>"Data is not availble this website"</p>
+                            <p>"Email Data is not availble this website"</p>
                             {% endif %}
                         </div>
                     </div>
@@ -77,7 +112,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script> © Code Scatter.
+                            <script>document.write(new Date().getFullYear())</script> © Code Scatter
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">

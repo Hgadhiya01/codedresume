@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block body %}
+{% extends 'admin_base.html' %} {% block body %}
 
         <!-- ============================================================== -->
         <!-- Start right Content here -->
@@ -12,12 +12,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">{{table_name}}</h4>
+                                <h4 class="mb-sm-0">Home</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">{{table_name}}</li>
+                                        <li class="breadcrumb-item active">Home</li>
                                     </ol>
                                 </div>
 
@@ -35,37 +35,26 @@
                     </div>
                     <!-- end page title -->
 
-                </div>
+                    <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-6 col-xl-5">
+                        <div class="card mt-4">
 
-                    <div class="row">
-                        <div class="col-12">
-                            {% if all_response and all_keys %}
-                            <table class="table">
-                              <thead>
-                              {% for var in all_keys %}
-                              <tr>
-                                {% for var1 in var %}
-                                  <th scope="col">{{var1}}</th>
-                              {% endfor %}
-                              </tr>
-                              {% endfor %}
-                              </thead>
-                              <tbody>
-                              {% for em in all_response %}
-                                <tr>
-                                    {% for em1 in em %}
-                                  <td>{{em1}}</td>
-                                    {% endfor %}
-                                </tr>
-                              {% endfor %}
-                              </tbody>
-                            </table>
-                            {% else %}
-                            <p>"Data is not availble this website"</p>
-                            {% endif %}
+                            <div class="card-body p-4">
+                                <div class="text-center mt-2">
+                                    <h5 class="text-primary">Welcome Back !</h5>
+                                    {% if session["admin_username"] %}
+                                    <p class="text-muted">{{session["admin_username"]}}</p>
+                                    {% else %}
+                                    <p class="text-muted">{{session["username"]}}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <!-- end card body -->
                         </div>
-                    </div>
+                        <!-- end card -->
 
+                    </div>
+                </div>
                 </div>
                 <!-- container-fluid -->
             </div>
@@ -75,11 +64,11 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script> © Code Scatter.
+                            <script>document.write(new Date().getFullYear())</script> © codescatter.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Code Scatter
+                                Design & Develop by codescatter
                             </div>
                         </div>
                     </div>

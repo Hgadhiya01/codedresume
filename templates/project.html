@@ -43,27 +43,34 @@
                                     <p class="text-muted">{{session["username"]}}</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="/project" method="POST">
+                                    <form action="/project" method="POST" enctype="multipart/form-data">
+                                        <p>* Project Image</p>
                                         <div class="mb-3">
-                                            <input type="text" name="img_url" class="form-control" id="img_url" placeholder="Enter your project google photos link" required>
+                                            <input type="file" name="img_url" class="form-control" id="img_url" autocomplete="off" required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="text" name="pro_name" class="form-control" id="pro_name" placeholder="Enter project name" required>
+                                            <input type="text" name="pro_name" class="form-control" id="pro_name" placeholder="* Enter project name" required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="text" name="language" class="form-control" id="language" placeholder="Enter programming language" required>
+                                            <input type="text" name="language" class="form-control" id="language" placeholder="* Enter programming language" required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="text" name="code_link" class="form-control" id="code_link" placeholder="Enter project code link">
+                                            <input type="text" name="code_link" class="form-control" id="code_link" placeholder="* Enter project code link">
                                         </div>
                                         <div class="mb-3">
-                                            <textarea class="form-control" id="description" rows="5" name="description" placeholder="Enter your project description" required></textarea>
+                                            <textarea class="form-control" id="description" rows="5" name="description" placeholder="* Enter your project description" required></textarea>
                                         </div>
                                         <div class="mt-4 text-center">
                                             <input type="submit" name="signin" id="signin" class="form-submit btn btn-success w-100" value="Submit Data"/>
                                         </div>
-                                    </form>
-                                </div>
+                                    </form><br><br><center>
+                                    <a href="/education" style="color: #fff;"><p class="btn btn-primary w-20" style="color: #fff; margin-right: 20px; margin-bottom: 10px; width: 200px; border-radius: 10px;">Educations</a>
+                                    <a href="/experience" style="color: #fff;"><p class="btn btn-primary w-20" style="color: #fff; margin-right: 20px; margin-bottom: 10px; width: 200px; border-radius: 10px;">Experiences</a><br>
+                                    <a href="/skill" style="color: #fff;"><p class="btn btn-primary w-20" style="color: #fff; margin-right: 20px; margin-bottom: 10px; width: 200px; border-radius: 10px;">Skills</a>
+                                    <a href="/social_media" style="color: #fff;"><p class="btn btn-primary w-20" style="color: #fff; margin-right: 20px; margin-bottom: 10px; width: 200px; border-radius: 10px;">Social-Media Links</a><br>
+                                    <a href="/project" style="color: #fff;"><p class="btn btn-primary w-20" style="color: #fff; margin-right: 20px; margin-bottom: 10px; width: 200px; border-radius: 10px;">Projects</a>
+                                    <a href="/personal_info" style="color: #fff;"><p class="btn btn-primary w-20" style="color: #fff; margin-right: 20px; margin-bottom: 10px; width: 200px; border-radius: 10px;">Personal Information</a>
+                                </center></div>
                             </div>
                             <!-- end card body -->
                         </div>
@@ -72,36 +79,36 @@
                     </div>
                 </div>
 
-                    <div class="row" style="margin-top: 50px;">
-                        <div class="col-12">
-                            {% if all_response %}
-                            <table class="table">
-                              <thead>
-                                <tr>
-                                    <th scope="col">Image link</th>
-                                    <th scope="col">project name</th>
-                                    <th scope="col">language</th>
-                                    <th scope="col">description</th>
-                                    <th scope="col">github link</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              {% for em in all_response %}
-                                <tr>
-                                  <th>{{em[0][0:31]}}</th>
-                                  <td>{{em[1]}}</td>
-                                    <td>{{em[2]}}</td>
-                                    <td>{{em[3]}}</td>
-                                    <td>{{em[4][0:31]}}</td>
-                                </tr>
-                              {% endfor %}
-                              </tbody>
-                            </table>
-                            {% else %}
-                            <p>"Data is not availble this user"</p>
-                            {% endif %}
-                        </div>
-                    </div>
+<!--                    <div class="row" style="margin-top: 50px;">-->
+<!--                        <div class="col-12">-->
+<!--                            {% if all_response %}-->
+<!--                            <table class="table">-->
+<!--                              <thead>-->
+<!--                                <tr>-->
+<!--                                    <th scope="col">Image link</th>-->
+<!--                                    <th scope="col">project name</th>-->
+<!--                                    <th scope="col">language</th>-->
+<!--                                    <th scope="col">description</th>-->
+<!--                                    <th scope="col">github link</th>-->
+<!--                                </tr>-->
+<!--                              </thead>-->
+<!--                              <tbody>-->
+<!--                              {% for em in all_response %}-->
+<!--                                <tr>-->
+<!--                                  <th>{{em[0][0:31]}}</th>-->
+<!--                                  <td>{{em[1]}}</td>-->
+<!--                                    <td>{{em[2]}}</td>-->
+<!--                                    <td>{{em[3]}}</td>-->
+<!--                                    <td>{{em[4][0:31]}}</td>-->
+<!--                                </tr>-->
+<!--                              {% endfor %}-->
+<!--                              </tbody>-->
+<!--                            </table>-->
+<!--                            {% else %}-->
+<!--                            <p>"Data is not availble this user"</p>-->
+<!--                            {% endif %}-->
+<!--                        </div>-->
+<!--                    </div>-->
 
 <!--                    <div class="row" style="margin-top: 50px;">-->
 <!--                        <div class="col-12">-->

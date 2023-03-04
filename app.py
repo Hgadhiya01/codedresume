@@ -5,10 +5,12 @@ from flask import (flash, Flask, redirect, render_template, request,
                    session, url_for)
 from pymongo import MongoClient
 from flask_mail import Mail
-
+import urllib.request
+import os
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-UPLOAD_FOLDER = 'static/uploads/'
+UPLOAD_FOLDER = '/static/uploads/'
 
 # SqlAlchemy Database Configuration With Mysql
 app.config.from_pyfile('config.py')
@@ -28,8 +30,13 @@ secure_type = "http"
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif' 'svg'])
 
-def allowed_file(filename):
+ALLOWED_EXTENSIONS_file = set(['pdf', 'doc'])
+
+def allowed_photos(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS_file
 
 
 link_verificattion = ["https", "http", "www", "com", "org", "edu", "in"]
@@ -78,6 +85,15 @@ def find_all_specific_user(coll_name, di):
     except Exception as e:
         print(e)
 
+def delete_data(coll_name, di):
+    try:
+        coll = db[coll_name]
+        res = coll.delete_one(di)
+        return res
+
+    except Exception as e:
+        print(e)
+
 def update_data(coll_name, prev_data, update_data):
     try:
         coll = db[coll_name]
@@ -87,6 +103,16 @@ def update_data(coll_name, prev_data, update_data):
     except Exception as e:
         print(e)
 
+def checking_upload_folder(filename):
+    try:
+        entries = os.listdir(app.config["UPLOAD_FOLDER"])
+        if filename in entries:
+            return "duplicate"
+        else:
+            return "not duplicate"
+
+    except Exception as e:
+        print(e)
 
 # That is route for register page and save customer data
 @app.route("/register", methods=["GET","POST"])
@@ -124,7 +150,6 @@ def register():
                     flash("Username is already availble!!!! Please try with another username....")
                     return redirect(url_for('register', _external=True, _scheme=secure_type))
                 else:
-                    session["username"] = username
                     session["email"] = email
                     created_on = updated_on = datetime.now().strftime("%Y/%m/%d %H:%M")
 
@@ -154,7 +179,7 @@ def otp_sending_ver():
         mail.send_message("OTP Received",
                           sender="harshitgadhiya8980@gmail.com",
                           recipients=[session.get("email", "")],
-                          body='Hello {0}\nYour OTP is {1}\nThis OTP is valid only 10 miniuts....'.format(session["username"], otp))
+                          body='Hello Sir/madam \nYour OTP is {0}\nThis OTP is valid only 10 miniuts....'.format(otp))
         flash("OTP sending successfully...........")
         return redirect(url_for('verification', _external=True, _scheme=secure_type))
 
@@ -175,14 +200,18 @@ def verification():
             send_otp = session.get("otp", "")
             if get_otp == int(send_otp):
                 new_dict = session.get("new_dict", "")
-                add_data = register_data(coll_name="customer_details", new_dict=new_dict)
+                session["username"] = new_dict.get("username", "")
+                new_dict1 = {"name": new_dict["name"], "email": new_dict['email'], "phone": int(new_dict['phone']), "address": new_dict['address'], "username": new_dict['username'],
+                            "password": new_dict['password'], "created_on": new_dict['created_on'], "updated_on": new_dict['updated_on']}
 
-                flash("You are successfully register......Enjoy with that product...")
+                add_data = register_data(coll_name="customer_details", new_dict=new_dict1)
+
                 mail.send_message("Successfully Register",
                                   sender="harshitgadhiya8980@gmail.com",
                                   recipients=["codescatter8980@gmail.com"],
                                   body="Hello 1 user added")
-                return redirect(url_for('home', _external=True, _scheme=secure_type))
+                flash("Successfully Register!!!...........")
+                return redirect(url_for('dash_home', _external=True, _scheme=secure_type))
             else:
                 flash("OTP is wrong. Please enter correct otp")
                 return redirect(url_for('verification', _external=True, _scheme=secure_type))
@@ -256,12 +285,11 @@ def sending_forget_mail():
             username_list = [data.get("username", "") for data in res]
             email_list = [data.get("email", "") for data in res]
             if username in username_list or username in email_list:
-                flash("Pleas check your mail............")
                 mail.send_message("Forget_Password",
                                   sender="harshitgadhiya8980@gmail.com",
                                   recipients=[email],
                                   body='Hello user\nChange Password\nclick that link https://codedresume.pythonanywhere.com/forget_password')
-
+                flash("Pleas check your mail............")
                 return redirect(url_for('sending_forget_mail', _external=True, _scheme=secure_type))
             else:
                 flash("That {0} is not availble First you can register!!".format(username))
@@ -472,7 +500,12 @@ def theme_selection():
     That function was register for new user
     """
     try:
-        return render_template("theme.html")
+        di = {}
+        all_res = []
+        ret = find_all_cust_details_coll(coll_name="added_theme")
+        for var in ret:
+            all_res.append(list(var.values())[1:])
+        return render_template("theme.html", all_res=all_res)
 
     except Exception as e:
         flash("Please try again.......................................")
@@ -632,11 +665,26 @@ def project():
             code_link = request.form["code_link"]
             description = request.form["description"]
 
-            if "https" in project_image_url or "http" in project_image_url or "www" in project_image_url:
-                pass
+            if 'img_url' not in request.files:
+                flash('No file part')
+                redirect(url_for('project', _external=True, _scheme=secure_type))
+
+            if project_image_url.filename == '':
+                flash('No image selected for uploading')
+                redirect(url_for('project', _external=True, _scheme=secure_type))
+
+            if project_image_url and allowed_photos(project_image_url.filename):
+                filename = secure_filename(project_image_url.filename)
+                ans = checking_upload_folder(filename=filename)
+                if ans!="duplicate":
+                    project_image_url.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                    project_image_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+                else:
+                    flash('This filename already exits')
+                    redirect(url_for('project', _external=True, _scheme=secure_type))
             else:
-                flash("Image URL start with https, http, www..........")
-                return redirect(url_for('project', _external=True, _scheme=secure_type))
+                flash('Please enter valid file.....')
+                redirect(url_for('project', _external=True, _scheme=secure_type))
 
             if "https" in code_link or "http" in code_link or "www" in code_link:
                 pass
@@ -648,7 +696,7 @@ def project():
             if username:
                 created_on = updated_on = datetime.now().strftime("%Y/%m/%d %H:%M")
 
-                new_dict = {"username":username, "project_image_url": project_image_url, "project_name": project_name,
+                new_dict = {"username":username, "project_image_url": project_image_path, "project_name": project_name,
                             "language": language, "description":description, "code_link": code_link, "created_on": created_on, "updated_on": updated_on}
                 add_data = register_data(coll_name="projects", new_dict=new_dict)
                 flash("data added succefully..................")
@@ -760,16 +808,58 @@ def social_media():
 def personal_info():
     try:
         if request.method=="POST":
-            photo_link = request.form["photo_link"]
+            photo_link = request.files["photo_link"]
             name = request.form["name"]
             age = request.form["age"]
             email = request.form["email"]
             phone = request.form["phone"]
             designation = request.form["designation"]
             language = request.form["language"]
-            resume_link = request.form["resume_link"]
+            resume_link = request.files["resume_link"]
             description = request.form["description"]
             address = request.form["address"]
+
+            if 'photo_link' not in request.files:
+                flash('No file part')
+                redirect(url_for('personal_info', _external=True, _scheme=secure_type))
+
+            if 'resume_link' not in request.files:
+                flash('No file part')
+                redirect(url_for('personal_info', _external=True, _scheme=secure_type))
+
+            if photo_link.filename == '':
+                flash('No image selected for uploading')
+                redirect(url_for('personal_info', _external=True, _scheme=secure_type))
+
+            if resume_link.filename == '':
+                flash('No resume selected for uploading')
+                redirect(url_for('personal_info', _external=True, _scheme=secure_type))
+
+            if photo_link and allowed_photos(photo_link.filename):
+                filename = secure_filename(photo_link.filename)
+                ans = checking_upload_folder(filename=filename)
+                if ans!="duplicate":
+                    photo_link.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                    photo_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+                else:
+                    flash('This filename already exits')
+                    redirect(url_for('personal_info', _external=True, _scheme=secure_type))
+            else:
+                flash('This file format is not supported.....')
+                redirect(url_for('personal_info', _external=True, _scheme=secure_type))
+
+            if resume_link and allowed_file(resume_link.filename):
+                filename = secure_filename(resume_link.filename)
+                ans1 = checking_upload_folder(filename=filename)
+                if ans1!="duplicate":
+                    resume_link.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                    resume_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+                else:
+                    flash('This filename already exits')
+                    redirect(url_for('personal_info', _external=True, _scheme=secure_type))
+            else:
+                flash('This file format is not supported.....')
+                redirect(url_for('personal_info', _external=True, _scheme=secure_type))
 
             if "gmail" in email:
                 pass
@@ -777,25 +867,13 @@ def personal_info():
                 flash("Please enter valid gmail ID..........")
                 return redirect(url_for('personal_info', _external=True, _scheme=secure_type))
 
-            if "https" in photo_link or "http" in photo_link or "www" in photo_link:
-                pass
-            else:
-                flash("Image URL start with https, http, www..........")
-                return redirect(url_for('personal_info', _external=True, _scheme=secure_type))
-
-            if "https" in resume_link or "http" in resume_link or "www" in resume_link:
-                pass
-            else:
-                flash("Resume URL start with https, http, www..........")
-                return redirect(url_for('personal_info', _external=True, _scheme=secure_type))
-
             username = session.get("username", "")
             if username:
                 created_on = updated_on = datetime.now().strftime("%Y/%m/%d %H:%M")
 
-                new_dict = {"username":username, "photo_link": photo_link, "name": name,
+                new_dict = {"username":username, "photo_link": photo_path, "name": name,
                             "age": age, "email": email, "phone": phone, "designation":designation, "address":address,
-                            "language": language, "resume_link": resume_link, "description": description,
+                            "language": language, "resume_link": resume_path, "description": description,
                             "created_on": created_on, "updated_on": updated_on}
                 add_data = register_data(coll_name="personal_info", new_dict=new_dict)
                 flash("data added succefully..................")
@@ -1011,7 +1089,7 @@ def admin(table_name):
     """
     try:
         all_response, all_keys = all_data_fetching(table_name=table_name)
-        return render_template("admin/{}.html".format(table_name), all_response=all_response, all_keys=all_keys, table_name=table_name)
+        return render_template("admin/{}.html".format(table_name), all_response=all_response, all_keys=all_keys, table_name=table_name, temp='admin')
 
     except Exception as e:
         print(e)
@@ -1029,14 +1107,62 @@ def admin_user():
         all_response, all_keys = all_data_fetching(table_name="admin user")
         if request.method=="POST":
             username = request.form["username"]
-            pwd = request.form["pwd"]
+            pwd = request.form["password"]
 
             di = {"username": username, "password": pwd}
-            msg = register_data(coll_name="admin user", new_dict="di")
+            msg = register_data(coll_name="admin user", new_dict=di)
             flash("data will added successfully.................")
-            return render_template("admin/admin_user.html", all_keys=all_keys, all_response=all_response, table_name="admin user")
+            return redirect(url_for('admin_user', _external=True, _scheme=secure_type))
         else:
             return render_template("admin/admin_user.html", all_keys=all_keys, all_response=all_response, table_name="admin user")
+
+    except Exception as e:
+        flash("Sorry for that issue....Please try again!")
+        return redirect(url_for('admin_home', _external=True, _scheme=secure_type))
+
+@app.route("/delete/<data>", methods=["GET","POST"])
+def delete(data):
+    """
+    That route can use login user
+    """
+
+    try:
+        sp = data.split("+++")
+        di = {}
+        if sp[0]=="admin":
+            all_response, all_keys = all_data_fetching(table_name=sp[1])
+        else:
+            all_response, all_keys = all_useradmin_data_fetching(table_name=sp[1])
+
+        for var,var1 in zip(all_keys[0], all_response[int(sp[2])-1]):
+            di[var]=var1
+
+        res = delete_data(coll_name=sp[1], di=di)
+        return redirect(url_for('admin_home', _external=True, _scheme=secure_type))
+
+    except Exception as e:
+        flash("Sorry for that issue....Please try again!")
+        return redirect(url_for('admin_home', _external=True, _scheme=secure_type))
+
+@app.route("/added_theme", methods=["GET","POST"])
+def added_theme():
+    """
+    That route can use login user
+    """
+
+    try:
+        all_response, all_keys = all_data_fetching(table_name="added_theme")
+        if request.method=="POST":
+            di = {}
+            for var in all_keys[0]:
+                var1 = request.form[var]
+                di[var] = var1
+
+            msg = register_data(coll_name="added_theme", new_dict=di)
+            flash("data will added successfully.................")
+            return redirect(url_for('added_theme', _external=True, _scheme=secure_type))
+        else:
+            return render_template("admin/added_theme.html", all_keys=all_keys, all_response=all_response, table_name="added_theme")
 
     except Exception as e:
         flash("Sorry for that issue....Please try again!")
@@ -1084,12 +1210,26 @@ def tutorial():
         flash("Please try again.......................................")
         return render_template("tutorial.html")
 
+@app.route("/useradmin/<table_name>", methods=["GET","POST"])
+def useradmin(table_name):
+    """
+    That route can show landing page while user can login
+    """
+    try:
+        all_response, all_keys = all_useradmin_data_fetching(table_name=table_name)
+        return render_template("admin/{}.html".format(table_name), all_response=all_response, all_keys=all_keys, table_name=table_name, temp="useradmin")
+
+    except Exception as e:
+        print(e)
+        flash("Sorry for that issue....Please try again!")
+        return render_template("admin/{}.html".format(table_name))
+
 def all_data_fetching(table_name):
     try:
         di = {}
         ret = find_all_specific_user(coll_name=table_name, di=di)
 
-        if table_name not in ["admin user", "theme_selected"]:
+        if table_name not in ["admin user", "theme_selected", "added_theme"]:
             all_response = []
             all_keys = []
             for var in ret:
@@ -1117,6 +1257,38 @@ def all_data_fetching(table_name):
     except Exception as e:
         print(e)
 
+def all_useradmin_data_fetching(table_name):
+    try:
+        di = {"username": session["username"]}
+        ret = find_all_specific_user(coll_name=table_name, di=di)
+
+        if table_name not in ["admin user", "theme_selected"]:
+            all_response = []
+            all_keys = []
+            for var in ret:
+                li_list = list(var.values())
+                if li_list[2:-2] not in all_response:
+                    all_response.append(li_list[2:-2])
+
+                li_key = list(var.keys())
+                if li_key[2:-2] not in all_keys:
+                    all_keys.append(li_key[2:-2])
+        else:
+            all_response = []
+            all_keys = []
+            for var in ret:
+                li_list = list(var.values())
+                if li_list[2:] not in all_response:
+                    all_response.append(li_list[2:])
+
+                li_key = list(var.keys())
+                if li_key[2:] not in all_keys:
+                    all_keys.append(li_key[2:])
+
+        return all_response, all_keys
+
+    except Exception as e:
+        print(e)
 
 
 if __name__ == "__main__":
